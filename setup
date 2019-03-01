@@ -1,6 +1,0 @@
-sudo apt-get install i3
-
-# The following NEW packages will be installed:
-# dunst i3 i3-wm i3lock i3status libanyevent-i3-perl libanyevent-perl libasync-interrupt-perl libcommon-sense-perl libev-perl libev4 libguard-perl libjson-xs-perl
-# libtypes-serialiser-perl libxcb-cursor0 libxcb-xrm0 libxdg-basedir1
-
