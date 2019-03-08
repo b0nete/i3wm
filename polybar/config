@@ -1,0 +1,657 @@
+[bar/top]
+enable-ipc = true
+bottom = false
+monitor = eDP1
+width = 100%
+height = 3%
+#dpi = 192
+
+background = #1f1f1f
+foreground = #eee
+
+line-color = ${bar/bottom.background}
+line-size = 1
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+separator = |
+
+font-0 = Monospace:size=9;0
+#font-1 = Font Awesome 5 Free:size=9;0
+font-1 = Font Awesome 5 Free Regular:size=9;0
+font-2 = Font Awesome 5 Free Solid:size=9;0
+font-3 = Font Awesome 5 Brands Regular:size=9;0
+
+modules-left = previous next spotify
+modules-center =
+modules-right =       
+
+tray-position = right 
+tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${self.background}
+tray-maxsize = 64
+tray-detached = false
+
+tray-offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+[bar/bottom]
+monitor = eDP1
+bottom = true
+width = 100%
+height = 3%
+#dpi = 192
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 2
+
+padding-left = 1
+padding-right = 1
+module-margin-left = 1
+module-margin-right = 1
+
+separator = |
+
+font-0 = Monospace:size=9;0
+#font-1 = Font Awesome 5 Free:size=9;0
+font-1 = Font Awesome 5 Free Regular:size=9;0
+font-2 = Font Awesome 5 Free Solid:size=9;0
+font-3 = Font Awesome 5 Brands Regular:size=9;0
+
+modules-left = i3  
+modules-right = cpu memory wlan battery temperature-c alsa date
+
+[module/backlight]
+type = internal/backlight
+format = <label>
+#format = <ramp> <bar>
+format-underline = #1db954
+
+card =  intel_backlight
+
+label = %percentage%%
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-font = 3
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 3
+bar-fill-foreground = #c9665e
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+# [module/consumation]
+# type = custom/script
+
+# exec = $HOME/.config/polybar/power.sh
+# interval = 2
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full = <ramp-capacity> <label-full>
+format-full-prefix = ""
+#format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+# [module/bspwm]
+# type = internal/bspwm
+
+# ws-icon-0 = term;
+# ws-icon-1 = web;
+# ws-icon-2 = code;
+# ws-icon-3 = music;
+# ws-icon-4 = irssi;
+# ws-icon-default = 
+
+# format = <label-state> <label-mode>
+
+# label-dimmed-underline = ${BAR.background}
+
+# label-active = %icon%
+# label-active-foreground = #fff
+# label-active-background = #773f3f3f
+# label-active-underline = #c9665e
+# label-active-font = 4
+# label-active-padding = 4
+
+# label-occupied = %icon%
+# label-occupied-foreground = #dd
+# label-occupied-underline = #666
+# label-occupied-font = 4
+# label-occupied-padding = 4
+# label-urgent = %icon%
+# label-urgent-foreground = #000000
+# label-urgent-background = #bd2c40
+# label-urgent-underline = #9b0a20
+# label-urgent-font = 4
+# label-urgent-padding = 4
+
+# label-empty = %icon%
+# label-empty-foreground = #55
+# label-empty-font = 4
+# label-empty-padding = 4
+
+# label-monocle = 
+# label-monocle-underline = ${module/bspwm.label-active-underline}
+# label-monocle-background = #33ffffff
+# label-monocle-padding = 2
+
+# label-locked = 
+# label-locked-foreground = #bd2c40
+# label-locked-underline = ${module/bspwm.label-monocle-underline}
+# label-locked-padding = ${module/bspwm.label-monocle-padding}
+
+# label-sticky = 
+# label-sticky-foreground = #fba922
+# label-sticky-underline = ${module/bspwm.label-monocle-underline}
+# label-sticky-padding = ${module/bspwm.label-monocle-padding}
+
+# label-private = 
+# label-private-foreground = #bd2c40
+# label-private-underline = ${module/bspwm.label-monocle-underline}
+# label-private-padding = ${module/bspwm.label-monocle-padding}
+
+# [module/bspwm-tmp]
+# type = internal/bspwm
+# format = <label-state>
+
+# label-active = 
+# label-active-padding = 1
+# label-occupied = 
+# label-occupied-padding = 1
+# label-empty = 
+# label-empty-padding = 1
+
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = code;
+ws-icon-3 = music;
+ws-icon-4 = irssi;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+format-underline = #1db954
+
+label-dimmed-underline = ${BAR.background}
+
+label-active = %icon%
+label-active-foreground = #fff
+label-active-background = #773f3f3f
+label-active-underline = #c9665e
+label-active-font = 4
+label-active-padding = 4
+
+label-occupied = %icon%
+label-occupied-foreground = #dd
+label-occupied-underline = #666
+label-occupied-font = 4
+label-occupied-padding = 4
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-empty = %icon%
+label-empty-foreground = #55
+label-empty-font = 4
+label-empty-padding = 4
+
+label-monocle = 
+label-monocle-underline = ${module/bspwm.label-active-underline}
+label-monocle-background = #33ffffff
+label-monocle-padding = 2
+
+label-locked = 
+label-locked-foreground = #bd2c40
+label-locked-underline = ${module/bspwm.label-monocle-underline}
+label-locked-padding = ${module/bspwm.label-monocle-padding}
+
+label-sticky = 
+label-sticky-foreground = #fba922
+label-sticky-underline = ${module/bspwm.label-monocle-underline}
+label-sticky-padding = ${module/bspwm.label-monocle-padding}
+
+label-private = 
+label-private-foreground = #bd2c40
+label-private-underline = ${module/bspwm.label-monocle-underline}
+label-private-padding = ${module/bspwm.label-monocle-padding}
+
+[module/bspwm-tmp]
+type = internal/bspwm
+format = <label-state>
+format-underline = #1db954
+
+label-active = 
+label-active-padding = 1
+label-occupied = 
+label-occupied-padding = 1
+label-empty = 
+label-empty-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+label =  %percentage%%
+
+format-underline = #00f2ff
+
+[module/date]
+type = internal/date
+date =  %%{F#99}%Y-%m-%d%%{F-} %%{F#fff}%H:%M%%{F-}
+#date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+label-focused-margin = 1
+
+format-underline = #1db954
+
+
+[module/memory]
+type = internal/memory
+format = <label>
+format-underline = #ff00d8
+label =  %gb_used%/%gb_free%
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-consume = ✀
+
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/wireless-network]
+type = internal/network
+interface = wlp1s0
+interval = 1.0
+ping-interval = 10
+
+format-connected = <label-connected>
+format-underline = #1db954
+
+label-connected = :%local_ip% :%downspeed% :%upspeed%
+label-disconnected = not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+
+[module/alsa]
+type = internal/alsa
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+format-underline = #1db954
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  muted
+label-muted-foreground = #66
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+format-underline = #1db954
+
+mount-0 = /
+
+label-mounted =   %percentage_used%%
+label-unmounted =  not mounted
+label-unmounted-foreground = #66
+
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 5
+
+label-open = 
+label-close = 
+label-separator = |
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #fba922
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu_open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu_open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu_open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu_open-0
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+
+
+[module/temperature-c]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+#label-warn-foreground = ${colors.secondary}
+
+ramp-0 =  
+ramp-1 =  
+ramp-2 =  
+ramp-3 =  
+ramp-4 =  
+#ramp-foreground = ${colors.foreground-alt}
+
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+format-underline = #1db954
+
+; vim:ft=dosini
+
+
+## DEPENDENCIES
+# python module dbus & GObject3
+
+[module/previous]
+type = custom/script
+interval = 86400
+#format = "%{T3}<label>"
+format-padding = 0
+; Previous song icon
+exec = echo ""
+format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 86400
+#format = "%{T3}<label>"
+format-padding = 0
+; Next song icon
+exec = echo ""
+format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+# [module/playpause]
+# type = custom/ipc
+# ; Default
+# hook-0 = echo "default"
+# ; Playing
+# hook-1 = echo "play"
+# ; Paused
+# hook-2 = echo "pausa"
+# initial = 1
+# format-underline = #1db954
+# line-size = 1
+# click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+# [module/spotify]
+# type = custom/ipc
+# hook-0 = echo ""
+# hook-1 = python3 /home/zurdo/.config/polybar/scripts/spotify/spotify_status.py
+# initial = 1
+# format-padding = 4
+# format-underline = #1db954
+# line-size = 1
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format =  <label>
+exec = python3 /home/zurdo/.config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
+format-underline = #1db954
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 5.0
+
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected =  %local_ip%  %downspeed%  %upspeed%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+#ramp-signal-0 = "  "
+#ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/pulseaudio-tail]
+type = custom/script
+exec = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh
+tail = true
+click-right = exec pavucontrol &
+click-left = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --mute
+scroll-up = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --up
+scroll-down = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --down
+
