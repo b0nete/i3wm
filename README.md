@@ -1,7 +1,13 @@
 # i3wm
-i3 windows manager for Debian.
+This config was tested in manjaro linux i3.
 
-Manjaro i3 works it works as follow way.
+#Dependencies
+i3
+polybar
 
-- ~/.i3/config
-     - /etc/i3status.conf
+#Install
+- Install dependencies.
+- Backup your currently config.
+- Replace folder ".config" in "~/.config" (This folder contain the polybar config)
+- Replace folder ".i3" in "~/.i3" (This folder contain the i3 config)
+- Restart i3.
