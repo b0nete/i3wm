@@ -1,9 +1,12 @@
 [bar/top]
 enable-ipc = true
 bottom = false
-monitor = eDP1
+# monitor = eDP1
+monitor = ${env:MONITOR:}
 width = 100%
-height = 3%
+height = 23
+
+
 #dpi = 192
 
 background = #1f1f1f
@@ -38,8 +41,8 @@ tray-detached = false
 
 tray-offset-y = 0
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+#scroll-up = i3wm-wsnext
+#scroll-down = i3wm-wsprev
 
 overline-size = 10
 overline-color = ${self.background}
@@ -47,14 +50,15 @@ underline-size = 2
 underline-color = ${self.background}
 
 [bar/bottom]
-monitor = eDP1
+# monitor = eDP1
+monitor = ${env:MONITOR:}
 bottom = true
 width = 100%
-height = 3%
+height = 23
 #dpi = 192
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+#scroll-up = i3wm-wsnext
+#scroll-down = i3wm-wsprev
 
 background = ${bar/top.background}
 foreground = ${bar/top.foreground}
@@ -75,8 +79,8 @@ font-1 = Font Awesome 5 Free Regular:size=9;0
 font-2 = Font Awesome 5 Free Solid:size=9;0
 font-3 = Font Awesome 5 Brands Regular:size=9;0
 
-modules-left = i3  
-modules-right = cpu memory wlan battery temperature-c alsa date
+modules-left = i3 
+modules-right = crypto cpu memory wlan battery temperature-c alsa date
 
 [module/backlight]
 type = internal/backlight
@@ -149,6 +153,17 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
+# [module/bspwm-tmp]
+# type = internal/bspwm
+# format = <label-state>
+
+# label-active = 
+# label-active-padding = 1
+# label-occupied = 
+# label-occupied-padding = 1
+# label-empty = 
+# label-empty-padding = 1
+
 # [module/bspwm]
 # type = internal/bspwm
 
@@ -160,6 +175,7 @@ animation-charging-framerate = 750
 # ws-icon-default = 
 
 # format = <label-state> <label-mode>
+# format-underline = #1db954
 
 # label-dimmed-underline = ${BAR.background}
 
@@ -175,6 +191,7 @@ animation-charging-framerate = 750
 # label-occupied-underline = #666
 # label-occupied-font = 4
 # label-occupied-padding = 4
+
 # label-urgent = %icon%
 # label-urgent-foreground = #000000
 # label-urgent-background = #bd2c40
@@ -210,6 +227,7 @@ animation-charging-framerate = 750
 # [module/bspwm-tmp]
 # type = internal/bspwm
 # format = <label-state>
+# format-underline = #1db954
 
 # label-active = 
 # label-active-padding = 1
@@ -218,84 +236,12 @@ animation-charging-framerate = 750
 # label-empty = 
 # label-empty-padding = 1
 
-[module/bspwm]
-type = internal/bspwm
+# [module/cpu]
+# type = internal/cpu
+# interval = 1
+# label =  %percentage%%
 
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = music;
-ws-icon-4 = irssi;
-ws-icon-default = 
-
-format = <label-state> <label-mode>
-format-underline = #1db954
-
-label-dimmed-underline = ${BAR.background}
-
-label-active = %icon%
-label-active-foreground = #fff
-label-active-background = #773f3f3f
-label-active-underline = #c9665e
-label-active-font = 4
-label-active-padding = 4
-
-label-occupied = %icon%
-label-occupied-foreground = #dd
-label-occupied-underline = #666
-label-occupied-font = 4
-label-occupied-padding = 4
-
-label-urgent = %icon%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #55
-label-empty-font = 4
-label-empty-padding = 4
-
-label-monocle = 
-label-monocle-underline = ${module/bspwm.label-active-underline}
-label-monocle-background = #33ffffff
-label-monocle-padding = 2
-
-label-locked = 
-label-locked-foreground = #bd2c40
-label-locked-underline = ${module/bspwm.label-monocle-underline}
-label-locked-padding = ${module/bspwm.label-monocle-padding}
-
-label-sticky = 
-label-sticky-foreground = #fba922
-label-sticky-underline = ${module/bspwm.label-monocle-underline}
-label-sticky-padding = ${module/bspwm.label-monocle-padding}
-
-label-private = 
-label-private-foreground = #bd2c40
-label-private-underline = ${module/bspwm.label-monocle-underline}
-label-private-padding = ${module/bspwm.label-monocle-padding}
-
-[module/bspwm-tmp]
-type = internal/bspwm
-format = <label-state>
-format-underline = #1db954
-
-label-active = 
-label-active-padding = 1
-label-occupied = 
-label-occupied-padding = 1
-label-empty = 
-label-empty-padding = 1
-
-[module/cpu]
-type = internal/cpu
-interval = 1
-label =  %percentage%%
-
-format-underline = #00f2ff
+# format-underline = #00f2ff
 
 [module/date]
 type = internal/date
@@ -500,12 +446,12 @@ index-sort = true
 ; Default: false
 fuzzy-match = true
 
-ws-icon-0 = 1;♚
-ws-icon-1 = 2;♛
-ws-icon-2 = 3;♜
-ws-icon-3 = 4;♝
-ws-icon-4 = 5;♞
-ws-icon-default = ♟
+ws-icon-0 = "1;"
+ws-icon-1 = "2;"
+ws-icon-2 = "3;"
+ws-icon-3 = "4;"
+ws-icon-4 = "5;"
+ws-icon-default = ""
 
 label-dimmed-underline = ${root.background}
 
@@ -527,7 +473,7 @@ label-mode-background = #e60053
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-focused =  %index%
+label-focused = %icon% %index%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
 label-focused-underline = #fba922
@@ -539,7 +485,7 @@ label-focused-padding = 1
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-unfocused = %index%
+label-unfocused = %icon% %index%
 label-unfocused-padding = 1
 
 ; Available tokens:
@@ -548,7 +494,7 @@ label-unfocused-padding = 1
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-visible = %index%
+label-visible = %icon% %index%
 label-visible-underline = #555555
 label-visible-padding = 1
 
@@ -558,7 +504,7 @@ label-visible-padding = 1
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-urgent = %index%
+label-urgent = %icon% %index%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 1
@@ -614,7 +560,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 # [module/spotify]
 # type = custom/ipc
 # hook-0 = echo ""
-# hook-1 = python3 /home/zurdo/.config/polybar/scripts/spotify/spotify_status.py
+# hook-1 = python3 /home/b0nete/.config/polybar/scripts/spotify/spotify_status.py
 # initial = 1
 # format-padding = 4
 # format-underline = #1db954
@@ -625,12 +571,12 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format =  <label>
-exec = python3 /home/zurdo/.config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
+exec = python3 /home/b0nete/.config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
 format-underline = #1db954
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlp5s0
 interval = 5.0
 
 format-connected = <label-connected>
@@ -648,10 +594,17 @@ format-disconnected =
 
 [module/pulseaudio-tail]
 type = custom/script
-exec = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh
+exec = /home/b0nete/.config/polybar/scripts/pulseaudio-tail.sh
 tail = true
 click-right = exec pavucontrol &
-click-left = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --mute
-scroll-up = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --up
-scroll-down = /home/zurdo/.config/polybar/scripts/pulseaudio-tail.sh --down
+click-left = /home/b0nete/.config/polybar/scripts/pulseaudio-tail.sh --mute
+scroll-up = /home/b0nete/.config/polybar/scripts/pulseaudio-tail.sh --up
+scroll-down = /home/b0nete/.config/polybar/scripts/pulseaudio-tail.sh --down
 
+[module/crypto]
+type = custom/script
+label = 
+markup = pango
+interval = 60
+instance = bitcoin
+exec = python3 /home/b0nete/.config/polybar/scripts/crypto.py
