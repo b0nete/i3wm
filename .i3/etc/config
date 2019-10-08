@@ -297,7 +297,7 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id blueman-applet
-exec_always --no-startup-id /home/b0nete/.config/polybar/launch_polybar.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch_polybar.sh
 #Apps
 # exec --no-startup-id i3-msg 'workspace $ws1; exec opera'
 # exec --no-startup-id i3-msg 'workspace $ws2; exec $terminal; workspace $ws1'
