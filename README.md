@@ -1,3 +1,4 @@
+
 ## My cfg i3wm 
 This config was tested in default installation of manjaro i3wm.
 
@@ -39,3 +40,17 @@ You can install these dependencies running the follow command in your console: (
  -bluez && bluez-utils
  -flameshot
 
+#### Three displays with Intel(R) UHD Graphics 620 - Lenovo T480
+ For some reason, when you connect a 3rd display with an adapter -USB C to HDMI- arch detect the monitor and you can see with "xrandr --listmonitors", but this doesnt appear in arandr. So, you must do the follow:
+
+Get the correct mode changing the resolution and monitor frequency.
+
+    # gtf 1920 1080 60
+    
+So, add the newmode specyfing the output, add this mode to correct display, and bind with display.
+
+    # xrandr --newmode "1920x1080_60.00"  172.80  1920 2040 2248 2576  1080 1081 1084 1118  -HSync +Vsync
+    # xrandr --addmode HDMI2 "1920x1080_60.00"
+    # xrandr --output HDMI2 --mode "1920x1080_60.00"
+
+ 
